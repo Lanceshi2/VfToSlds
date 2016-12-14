@@ -1,0 +1,49 @@
+<apex:page>
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+    <style>
+        .msgIcon {
+	        display: none!important
+	    }
+	    .customMessage * {
+	        color: #fff!important
+	    }
+	    .customMessage {
+	        margin: 5px 0!important;
+	        max-width: 1280px;
+	        opacity: 1!important;
+	        width: 100%;
+	        font-size: 12px;
+	        border: 0px;
+	        padding-left: 10px;
+	    }
+	    .message {
+	        opacity: .1
+	    }
+    </style>
+    <apex:stylesheet value="{!URLFOR($Resource.Slds213, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+    <apex:includeScript value="{!$Resource.jQuery}"/>
+    <div class="sfdcinpractice">
+        <apex:pageMessages id="page_message" />
+    </div>
+    <script>
+    $(document).ready(function() {
+    	overridePageMessages(); //Put this into your oncomplete methods if needed
+    });
+
+    function overridePageMessages() {    
+	    var textureEffect = '';
+	    textureEffect = 'slds-theme--alert-texture';
+	                 
+	    $('.warningM3').addClass('slds-notify slds-notify--toast slds-theme--warning customMessage '+textureEffect);          
+	    $('.confirmM3').addClass('slds-notify slds-notify--alert slds-theme--success  customMessage '+textureEffect);    
+	    $('.errorM3').addClass('slds-notify slds-notify--alert slds-theme--error customMessage '+textureEffect);                  
+	    $('.infoM3').addClass('slds-notify slds-notify--toast customMessage '+textureEffect);    
+	                     
+	    $('.errorM3').removeClass('errorM3'); 
+	    $('.confirmM3').removeClass('confirmM3'); 
+	    $('.infoM3').removeClass('infoM3');   
+	    $('.warningM3').removeClass('warningM3');  
+	}
+    </script>
+	</html>
+</apex:page>
