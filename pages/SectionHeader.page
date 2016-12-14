@@ -1,7 +1,6 @@
 <apex:page>
     <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
     <apex:stylesheet value="{!URLFOR($Resource.Slds213, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
-    <apex:pageMessages id="error_message" />
     <div class="sfdcinpractice">
         <div class="slds-page-header">
             <div class="slds-grid">
