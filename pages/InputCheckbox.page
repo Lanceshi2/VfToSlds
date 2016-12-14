@@ -1,0 +1,17 @@
+<apex:page standardController="Account">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+    <apex:stylesheet value="{!URLFOR($Resource.Slds213, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+    <div class="sfdcinpractice">
+        <apex:form >
+        	<div class="slds-form-element slds-align--absolute-center">
+			    <label class="slds-checkbox">
+			        <apex:inputCheckbox styleClass="slds-input"
+			                            value="{!Account.Owner.isActive}"/>
+			        <span class="slds-checkbox--faux"></span>             
+			        <span class="slds-form-element__label">Checkbox Label</span>    
+			    </label>
+			</div>
+        </apex:form>
+    </div>
+    </html>
+</apex:page>
