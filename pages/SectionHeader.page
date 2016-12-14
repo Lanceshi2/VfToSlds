@@ -1,0 +1,30 @@
+<apex:page>
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+    <apex:stylesheet value="{!URLFOR($Resource.Slds213, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+    <apex:pageMessages id="error_message" />
+    <div class="sfdcinpractice">
+        <div class="slds-page-header">
+            <div class="slds-grid">
+                <div class="slds-media slds-media--top slds-no-space slds-grow">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-custom-custom27">
+                            <svg aria-hidden="true" class="slds-icon">
+                                <use xlink:href="{!URLFOR($Resource.Slds213, 'assets/icons/custom-sprite/svg/symbols.svg#custom27')}"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Account Icon</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <p class="slds-text-heading--label">Heading</p>
+                        <div class="slds-grid">
+                            <div class="slds-grid slds-type-focus slds-no-space">
+                                <h1 class="slds-text-heading--medium slds-truncate">Sub heading</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </html>
+</apex:page>
