@@ -1,0 +1,39 @@
+<apex:page controller="SelectCheckBoxesController">
+	<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+    <apex:stylesheet value="{!URLFOR($Resource.Slds213, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+    <apex:includeScript value="{!$Resource.jQuery}"/>
+    <div class="sfdcinpractice">
+    	<apex:form>
+	    	<div class="slds-col--padded slds-p-top--medium slds-p-left--medium">
+	            <apex:selectCheckboxes value="{!selectedOne}" styleClass="convertToLSD" layout="pageDirection">
+	                <apex:selectOptions value="{!availableOptions}"/>
+	            </apex:selectCheckboxes>
+	        </div>
+        </apex:form>
+    </div>
+    <script>
+    $(document).ready(function() {
+        convertCheckBoxToLDS();
+    });
+
+    function convertCheckBoxToLDS() {
+        var Row = document.getElementsByClassName("convertToLSD");
+        for (var k = 0; k < Row.length; k++) {
+            var colTds = Row[k].getElementsByTagName("td");
+            for (var i = 0; i < colTds.length; i++) {
+                var inrHtml = colTds[i].innerHTML;
+                var chkId = inrHtml.substring(inrHtml.indexOf("id=") + 4, inrHtml.indexOf("\"", inrHtml.indexOf("id=") + 4));
+                var chkBx = inrHtml.substring(inrHtml.indexOf("<input"), inrHtml.indexOf(">") + 1);
+                var chkLable = colTds[i].getElementsByTagName("label")[0].textContent;
+                var typeOfInput = colTds[i].getElementsByTagName("input")[0].getAttribute("type");
+                var newChkBox = '<label class="slds-' + typeOfInput + '" for="' + chkId + '">' + chkBx +
+                    '<span class="slds-' + typeOfInput + '--faux"></span>' +
+                    '<span class="slds-form-element__label">' + chkLable + '</span>' +
+                    '</label>';
+                colTds[i].innerHTML = newChkBox;
+            }
+        }
+    }
+    </script>
+	</html>
+</apex:page>
