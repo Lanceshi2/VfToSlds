@@ -33,6 +33,10 @@
                     </div>
                 </fieldset>
             </div>
+            <div class="slds-col--padded slds-p-top--medium slds-p-left--medium">
+                <apex:commandButton action="{!save}" value="Save" styleClass="slds-button slds-button--brand"/>
+                <apex:commandButton action="{!cancel}" value="Cancel" styleClass="slds-button slds-button--brand" immediate="true"/>
+            </div>
         </apex:form>
     </div>
     </html>

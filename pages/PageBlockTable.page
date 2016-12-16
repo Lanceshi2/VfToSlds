@@ -1,0 +1,39 @@
+<apex:page controller="PageBlockTableController">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+    <apex:stylesheet value="{!URLFOR($Resource.Slds213, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+    <div class="sfdcinpractice">
+        <apex:form >
+            <div class="slds-col--padded slds-p-top--large">
+                <article class="slds-card">
+                    <div class="slds-card__header slds-grid">
+                        <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                            <h2 class="slds-text-heading--medium">
+                                Table Title
+                            </h2>
+                        </header>
+                    </div>
+                    <div class="slds-card__body slds-m-left--small slds-m-right--small slds-m-bottom--medium">
+                        <apex:dataTable value="{!contactList}" var="con" styleClass="slds-table slds-table--bordered slds-table--striped">
+                            <apex:column >
+                                <apex:facet name="header">Sample Checkbox</apex:facet>
+                                <label class="slds-checkbox">
+                                    <apex:inputCheckbox styleClass="slds-input" value="{!con.Sample_Checkbox__c}"/>
+                                    <span class="slds-checkbox--faux"></span>              
+                                </label>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">Contact Name</apex:facet>
+                                <apex:outputText value="{!con.Name}"/>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">Email</apex:facet>
+                                <apex:outputText value="{!con.Email}"/>
+                            </apex:column>
+                        </apex:dataTable>
+                    </div>
+                </article>
+            </div>
+        </apex:form>
+    </div>
+	</html>
+</apex:page>
