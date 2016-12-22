@@ -1,0 +1,32 @@
+<apex:page controller="InputLookupRelationshipController">
+	<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+    <apex:stylesheet value="{!URLFOR($Resource.Slds213, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+	<apex:includeScript value="{!$Resource.jQuery}"/>
+	<apex:includeScript value="{!$Resource.momentJs}"/>
+	<script src="{!URLFOR($Resource.aljs, '/jquery.aljs-all.min.js')}"></script>
+	<div class="sfdcinpractice">
+		<div class="slds-form-element slds-lookup slds-size--1-of-2" data-select="single" data-scope="single">
+            <label class="slds-form-element__label" for="lookup-01">Account</label>
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+                <svg aria-hidden="true" class="slds-input__icon slds-icon-text-default">
+                    <use xlink:href="{!URLFOR($Resource.Slds213, '/assets/icons/utility-sprite/svg/symbols.svg#search')}"></use>
+                </svg>
+                <input id="list-lookup" class="slds-lookup__search-input slds-input" type="text" aria-autocomplete="list" role="combobox" aria-expanded="true" aria-activedescendant="" placeholder="Search Account"/>
+            </div>
+        </div>
+	</div>
+	<script>
+		$(document).ready(function() {
+            var assetsLocation = "{!URLFOR($Resource.Slds213)}";
+            $.aljsInit({
+                assetsLocation: assetsLocation, 
+                scoped: true
+            });
+
+            $('#list-lookup').lookup({
+                items: {!lookupString}
+            });
+        });
+	</script>
+	</html>
+</apex:page>
